@@ -1,13 +1,22 @@
 {
-    "name": "Medium Extension",
-    "description": "This extension is made for demonstration purposes",
+    "name": "Yupoo Media Downloader",
+    "description": "download entire Yupoo media from a users album",
     "version": "1.0",
     "manifest_version": 3,
     "permissions": [
        "activeTab",
        "scripting"
     ],
+    "action": {
+      "default_popup": "index.html"
+    },
     "background": {
        "service_worker": "background.js"
-    }
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://*.yupoo.com/*"],
+        "js": ["content-script.js"]
+      }
+    ]
  }
